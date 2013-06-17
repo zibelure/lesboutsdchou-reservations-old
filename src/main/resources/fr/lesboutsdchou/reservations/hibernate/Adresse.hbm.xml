@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20 April 2010 8:33:09 PM by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="fr.lesboutsdchou.reservations.model.personnes.Adresse" table="adresse" catalog="lesboutsdchou" lazy="true">
+        <id name="id" type="long">
+            <column name="ID_ADRESSE" />
+            <generator class="identity" />
+        </id>
+        		
+        <property name="voie" type="string">
+            <column name="VOIE" length="45" not-null="true" />
+        </property>        
+        
+        <property name="numVoie" type="string">
+            <column name="NUM_VOIE" length="45" not-null="true" />
+        </property>        
+        
+        <property name="codePostal" type="string">
+            <column name="CODE_POSTAL" length="45" not-null="true" />
+        </property>        
+        
+        <property name="localite" type="string">
+            <column name="LOCALITE" length="45" not-null="true" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

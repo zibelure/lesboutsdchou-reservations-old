@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20 April 2010 8:33:09 PM by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="fr.lesboutsdchou.reservations.model.personnes.Famille" table="famille" catalog="lesboutsdchou" lazy="true">
+        <id name="id" type="long">
+            <column name="ID_FAMILLE" />
+            <generator class="identity" />
+        </id>
+        
+        <property name="numCaf" type="string" unique="true">
+            <column name="NUM_CAF" length="45" not-null="true" unique="true"/>
+        </property>
+        
+        <bag name="parents" table="PARENTS_FAMILLE" cascade="all" lazy="true">
+			<key column="ID_FAMILLE" />
+			<many-to-many column="ID_PARENT" unique="true" class="fr.lesboutsdchou.reservations.model.personnes.Parent" />
+		</bag>
+		
+		<bag name="enfants" table="ENFANTS_FAMILLE" cascade="all" lazy="true">
+			<key column="ID_FAMILLE" />
+			<many-to-many column="ID_ENFANT" unique="true" class="fr.lesboutsdchou.reservations.model.personnes.Enfant" />
+		</bag>
+			
+		<many-to-one name="adresse"
+                 class="fr.lesboutsdchou.reservations.model.personnes.Adresse"
+                 column="ID_ADDRESS"
+                 cascade="all"
+                 unique="true"/>
+        
+    </class>
+</hibernate-mapping>

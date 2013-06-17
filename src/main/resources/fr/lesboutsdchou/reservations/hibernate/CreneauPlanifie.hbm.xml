@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20 April 2010 8:33:09 PM by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="fr.lesboutsdchou.reservations.model.planning.CreneauPlanifie" table="creneau_planifie" catalog="lesboutsdchou">
+        <id name="id" type="long">
+            <column name="ID_CRENEAU_PLANIFIE" />
+            <generator class="identity" />
+        </id>		
+        <many-to-one name="enfant"
+                 class="fr.lesboutsdchou.reservations.model.personnes.Enfant"
+                 column="ID_ENFANT"
+                 cascade="all"
+                 unique="true"/>
+        
+		<many-to-one name="famille"
+                 class="fr.lesboutsdchou.reservations.model.personnes.Famille"
+                 column="ID_FAMILLE"
+                 cascade="all"
+                 unique="true"/>   
+        <property name="dateHeureDebut" type="timestamp">
+            <column name="DATE_HEURE_DEBUT" length="19" not-null="true" />
+        </property>
+        <property name="dateHeureFin" type="timestamp">
+            <column name="DATE_HEURE_FIN" length="19" not-null="true" />
+        </property> 
+        <property name="reservationValidee" type="boolean">
+            <column name="RESERVATION_VALIDEE" not-null="true" />
+        </property>    
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+   	<bean id="reservationServices" class="fr.lesboutsdchou.reservations.services.planning.impl.ReservationServicesImpl" autowire="byName" dependency-check="objects">
+   		<constructor-arg ref="reservationDao" />
+   	</bean>
+   	<bean id="reservationDao" class="fr.lesboutsdchou.reservations.dao.planning.impl.ReservationDaoImpl" >
+   		   	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+   	</bean>
+   	
+   	<bean id="adresseServices" class="fr.lesboutsdchou.reservations.services.personnes.impl.AdresseServicesImpl" autowire="byName" dependency-check="objects">
+   		<constructor-arg ref="adresseDao" />
+   	</bean>
+   	<bean id="adresseDao" class="fr.lesboutsdchou.reservations.dao.personnes.impl.AdresseDaoImpl" >
+   		   	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+   	</bean>
+   	
+   	<bean id="enfantServices" class="fr.lesboutsdchou.reservations.services.personnes.impl.EnfantServicesImpl" autowire="byName" dependency-check="objects">
+   		<constructor-arg ref="enfantDao" />
+   	</bean>
+   	<bean id="enfantDao" class="fr.lesboutsdchou.reservations.dao.personnes.impl.EnfantDaoImpl" >
+   		   	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+   	</bean>
+
+   	<bean id="familleServices" class="fr.lesboutsdchou.reservations.services.personnes.impl.FamilleServicesImpl" autowire="byName" dependency-check="objects">
+   		<constructor-arg ref="familleDao" />
+   	</bean>
+   	<bean id="familleDao" class="fr.lesboutsdchou.reservations.dao.personnes.impl.FamilleDaoImpl" >
+   		   	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+   	</bean>
+   	
+   	<bean id="parentServices" class="fr.lesboutsdchou.reservations.services.personnes.impl.ParentServicesImpl" autowire="byName" dependency-check="objects">
+   		<constructor-arg ref="parentDao" />
+   	</bean>
+   	<bean id="parentDao" class="fr.lesboutsdchou.reservations.dao.personnes.impl.ParentDaoImpl" >
+   		   	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
+   	</bean>
+   	
+   	<bean id="administrationBusiness" class="fr.lesboutsdchou.reservations.business.impl.AdministrationBusinessImpl" autowire="byName" dependency-check="objects">
+   		<constructor-arg ref="adresseServices"/>
+   		<constructor-arg ref="enfantServices"/>
+   		<constructor-arg ref="familleServices"/>
+   		<constructor-arg ref="parentServices"/>
+   		
+   		<!-- constructor-arg index="0" ref="adresseServices" type="AdresseServicesImpl"/>
+   		<constructor-arg index="1" ref="enfantServices" type="EnfantServicesImpl"/>
+   		<constructor-arg index="2" ref="familleServices" type="FamilleServicesImpl"/>
+   		<constructor-arg index="3" ref="parentServices" type="ParentServicesImpl"/>
+   		<constructor-arg index="5" ref="utilisateurServices" type="UtilisateurServicesImpl"/-->
+   	</bean>
+   	
+   	<bean id="reservationBusiness" class="fr.lesboutsdchou.reservations.business.impl.ReservationBusinessImpl" autowire="byName" dependency-check="objects">
+   		<constructor-arg ref="reservationServices"/>
+   	</bean>
+   		
+   	<bean id="businessFactory" class="fr.lesboutsdchou.reservations.business.impl.BusinessFactoryImpl" autowire="byName" dependency-check="objects">
+   		<property name="administrationBusiness" ref="administrationBusiness"></property>
+   		<property name="reservationBusiness" ref="reservationBusiness"></property>
+   	</bean>
+   	
+</beans>
