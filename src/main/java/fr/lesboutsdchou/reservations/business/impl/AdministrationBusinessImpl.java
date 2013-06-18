@@ -171,7 +171,7 @@ public class AdministrationBusinessImpl implements AdministrationBusiness {
 			while ( iterator.hasNext() ) {
 			    Enfant e = iterator.next();
 			    if (e.getId()==enfant.getId()) {
-			        // On supprime l'élément courant de la liste
+			        // On supprime l'Ã©lÃ©ment courant de la liste
 			        iterator.remove();
 			    }
 			}
@@ -191,7 +191,7 @@ public class AdministrationBusinessImpl implements AdministrationBusiness {
 			while ( iterator.hasNext() ) {
 			    Parent p = iterator.next();
 			    if (p.getId()==parent.getId()) {
-			        // On supprime l'élément courant de la liste
+			        // On supprime l'Ã©lÃ©ment courant de la liste
 			        iterator.remove();
 			    }
 			}
