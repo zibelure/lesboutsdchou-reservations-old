@@ -186,7 +186,7 @@ public class ReservationBusinessTest extends TestCase {
 			e.printStackTrace();
 		}
 				
-		//Ajout de la nouvelle réservation
+		//Ajout de la nouvelle rÃ©servation
 		CreneauReserve creneau = new CreneauReserve();
 		creneau.setFamille(famille);
 		creneau.setEnfant(enfant);
@@ -194,10 +194,10 @@ public class ReservationBusinessTest extends TestCase {
 		creneau.setDateHeureFin(dateHeureFin);
 		reservationBusiness.reserver(creneau);
 		
-		//Vérification de l'ajout
+		//VÃ©rification de l'ajout
 		creneau = reservationBusiness.rechercherReservationsParEnfantParJour(famille, enfant, dateHeureDebut);
-		assertEquals("date créneau correcte", dateHeureDebut, creneau.getDateHeureDebut());
-		assertEquals("enfant créneau correct", enfant, creneau.getEnfant());
+		assertEquals("date crÃ©neau correcte", dateHeureDebut, creneau.getDateHeureDebut());
+		assertEquals("enfant crÃ©neau correct", enfant, creneau.getEnfant());
 		
 	}
 	

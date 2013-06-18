@@ -103,7 +103,7 @@ public class AdministrationBusinessTest extends TestCase {
 		//Ajout de la nouvelle famille
 		administrationBusiness.ajouterFamille(famille);
 		
-		//Vérification de l'ajout
+		//VÃ©rification de l'ajout
 		famille = administrationBusiness.chercherFamille("00002");
 		adresse = administrationBusiness.chercherAdresse(famille);
 		if (famille != null) {
@@ -159,7 +159,7 @@ public class AdministrationBusinessTest extends TestCase {
 		}
 		
 
-		//Vérification de la modification
+		//VÃ©rification de la modification
 		enfants = administrationBusiness.chercherEnfants(famille);
 		assertEquals("nom enfant " + i + " correct", "McCartney", enfants.get(0).getNom());
 		assertEquals("prenom enfant " + i + " correct", "Paul", enfants.get(0).getPrenom());
@@ -198,7 +198,7 @@ public class AdministrationBusinessTest extends TestCase {
 		administrationBusiness.ajouterEnfant(famille, enfant);
 		
 		
-		//Vérification de l'ajout d'un enfant
+		//VÃ©rification de l'ajout d'un enfant
 		enfants = administrationBusiness.chercherEnfants(famille);
 		assertEquals("nom enfant 1 correct", "McCartney", enfants.get(0).getNom());
 		assertEquals("prenom enfant 1 correct", "Paul", enfants.get(0).getPrenom());
@@ -235,7 +235,7 @@ public class AdministrationBusinessTest extends TestCase {
 
 		administrationBusiness.ajouterParent(famille, parent);		
 
-		//Vérification de l'ajout d'un parent
+		//VÃ©rification de l'ajout d'un parent
 		parents = administrationBusiness.chercherParents(famille);
 		assertEquals("nom parent 1 correct", "McCartney", parents.get(0).getNom());
 		assertEquals("prenom parent 1 correct", "Mary", parents.get(0).getPrenom());
@@ -254,7 +254,7 @@ public class AdministrationBusinessTest extends TestCase {
 		Enfant enfant = enfants.get(0);
 		administrationBusiness.supprimerEnfant(famille, enfant);
 		
-		//Vérification de la suppression
+		//VÃ©rification de la suppression
 		famille = null;
 		famille = administrationBusiness.chercherFamille("00002");
 		enfants = administrationBusiness.chercherEnfants(famille);
@@ -275,7 +275,7 @@ public class AdministrationBusinessTest extends TestCase {
 		Parent parent = parents.get(0);
 		administrationBusiness.supprimerParent(famille, parent);
 		
-		//Vérification de la suppression
+		//VÃ©rification de la suppression
 		famille = null;
 		famille = administrationBusiness.chercherFamille("00002");
 		parents = administrationBusiness.chercherParents(famille);
@@ -292,7 +292,7 @@ public class AdministrationBusinessTest extends TestCase {
 		Famille famille = administrationBusiness.chercherFamille("00002");
 		administrationBusiness.supprimerFamille(famille);
 
-		//Vérification de la suppression
+		//VÃ©rification de la suppression
 		famille = null;
 		famille = administrationBusiness.chercherFamille("00002");
 		assertEquals("numCaf correct", null, famille);
